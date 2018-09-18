@@ -1,0 +1,96 @@
+package com.Supremegolf;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class City_SearchFlow {
+
+				public static void main(String[] args) throws InterruptedException 
+				{
+				System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+				WebDriver driver= new ChromeDriver();
+				driver.manage().window().maximize();
+				driver.get("https://staging.supremegolf.com/letmein");
+				System.out.println(driver.getCurrentUrl());  //url
+				driver.findElement(By.xpath("html/body/div[2]/div[2]/div/div[1]/button")).click();
+				Thread.sleep(1000);
+				driver.findElement(By.className("l-subheader__text")).click();
+				driver.findElement(By.id("user_email")).sendKeys("desuza.ann12@gmail.com");
+			    driver.findElement(By.id("user_password")).click(); 
+				driver.findElement(By.id("user_password")).sendKeys("Ann123@");
+				Thread.sleep(1000);
+				driver.findElement(By.className("btn-orange")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.className("close")).click();
+				System.out.println(driver.getCurrentUrl());  //url
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("html/body/div[2]/div[6]/div/div/div/form/fieldset/input[1]")).sendKeys("Dallas");
+				Thread.sleep(1000);
+				driver.findElement(By.xpath("html/body/div[2]/div[6]/div/div/div/form/fieldset/button")).click();
+				System.out.println(driver.getCurrentUrl());  //url
+				Thread.sleep(2000);
+				
+				//Handling Drop down
+				driver.findElement(By.className("sgSort-selected")).click();
+				Thread.sleep(500);
+				
+				driver.findElement(By.xpath(".//*[@id='js-tee-times']/h4/span[4]/div/ul/li[2]")).click();
+				driver.findElement(By.className("m-masthead")).click();
+				Thread.sleep(2000);
+				System.out.println(driver.findElement(By.xpath(".//*[@id='course_21600']/div[3]/div[1]/div/div")).getText());
+				
+				String p1=driver.findElement(By.xpath(".//*[@id='course_21600']/div[3]/div[1]/div/div")).getText();
+				String p2=driver.findElement(By.xpath(".//*[@id='course_21563']/div[3]/div[1]/div/div")).getText();
+				if(Integer.parseInt(p1)>Integer.parseInt(p2))
+				{
+				}
+						
+						
+				
+				
+				
+				
+				
+				
+				
+				/*driver.findElement(By.className("sgSort-selected")).click();
+				Thread.sleep(2000);					
+				driver.findElement(By.xpath(".//*[@id='js-tee-times']/h4/span[4]/div/ul/li[5]")).click();//sort//	
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//*[@id='js-tee-times']/h4/span[3]/div/div")).click();//calender picker
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//*[@id='js-tee-times']/h4/span[3]/div[3]/div[43]")).click();//selected date
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//*[@id='course_21608']/div[2]/a/div")).click();//course image to select
+				System.out.println(driver.getCurrentUrl());  //url
+				driver.navigate().back();
+				driver.findElement(By.xpath(".//*[@id='course_21608']/div[3]/span[2]/h3[1]/a")).click();//click on name of course
+				System.out.println(driver.getCurrentUrl());  //url
+				driver.navigate().back();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//*[@id='course_21613']/div[4]/a")).click();;//quick tee time
+				Thread.sleep(2000);
+				driver.findElement(By.className("icon-fav-course")).click();//add to favourite
+				Thread.sleep(1000);
+				driver.findElement(By.xpath(".//*[@id='21613']/a/div[1]")).click();//add price list
+				Thread.sleep(500);
+				driver.findElement(By.xpath(".//*[@id='21613']/div[2]/div/div[1]")).click();//close window for price alert
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(".//*[@id='course_21613']/div[1]/div")).click();//select stars for review
+				System.out.println(driver.getCurrentUrl());  //url
+				Thread.sleep(2000);
+				driver.navigate().back();
+				driver.navigate().refresh();
+				System.out.println(driver.getCurrentUrl());  //url
+				driver.navigate().refresh();
+				driver.findElement(By.xpath(".//*[@id='city-list-view']/div/div[1]/div/div[1]/div/div/div/div[2]/a[1]")).click();//social links
+				
+				*/
+				
+			}
+			}
+}
+}
+
+

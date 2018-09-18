@@ -1,0 +1,56 @@
+package com.Supremegolf;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByCssSelector;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class VisibilityOfElements {
+
+	public static void main(String[] args) throws Exception 
+	
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://staging.supremegolf.com/letmein");
+		System.out.println(driver.getCurrentUrl());
+		Thread.sleep(1000);
+		driver.findElement(By.className("l-subheader__text")).click();
+		driver.findElement(By.id("user_email")).sendKeys("desuza.ann12@gmail.com");
+		driver.findElement(By.id("user_password")).click(); 
+		driver.findElement(By.id("user_password")).sendKeys("Ann123@");
+		Thread.sleep(1000);
+		driver.findElement(By.className("btn-orange")).click();//sign-in
+		
+		//visibility of elements
+		// providers
+		List<WebElement> providers = driver.findElements(By.cssSelector("body > div.l-home-index.js-homepage > div.m-grid.m-grid--home.hidden-xs.hidden-sm.tab-grid > div > ul"));
+        for(WebElement i:providers)
+        {
+            System.out.println(i.getText());
+        } 
+		
+		//sliding elements
+        //1
+        List<WebElement> sliding1=driver.findElements(By.cssSelector("body > div.l-home-index.js-homepage > div.m-grid.m-grid--home.hidden-xs.hidden-sm.tab-grid > div > div"));
+        for (WebElement j: sliding1)
+        {
+        	System.out.println(j.getText());
+        }
+       Thread.sleep(1000);
+       //2
+       List<WebElement> myList=driver.findElements(By.cssSelector("body > div.l-home-index.js-homepage > div.m-grid.m-grid--home.hidden-xs.hidden-sm.tab-grid > div > div > div > ul > li:nth-child(3)"));
+       System.out.println(myList);
+       
+
+
+	}
+
+	}
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="13393" started-at="2018-09-11T11:54:45Z" finished-at="2018-09-11T11:54:58Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="13393" started-at="2018-09-11T11:54:45Z" finished-at="2018-09-11T11:54:58Z">
+      <class name="com.Supremegolf.CitySearch_moresearchoptions">
+        <test-method status="PASS" signature="LoginMethod()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="LoginMethod" is-config="true" duration-ms="13" started-at="2018-09-11T11:54:45Z" finished-at="2018-09-11T11:54:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginMethod -->
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="launchBrowser" is-config="true" duration-ms="13337" started-at="2018-09-11T11:54:45Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="enterUrl()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="enterUrl" is-config="true" duration-ms="1" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterUrl -->
+        <test-method status="PASS" signature="googlePage()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="googlePage" duration-ms="6" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googlePage -->
+        <test-method status="PASS" signature="logout()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="logout" is-config="true" duration-ms="0" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="yahooPage()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="yahooPage" duration-ms="2" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- yahooPage -->
+        <test-method status="PASS" signature="enterUrl()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="enterUrl" is-config="true" duration-ms="0" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterUrl -->
+        <test-method status="PASS" signature="logout()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="logout" is-config="true" duration-ms="1" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method status="PASS" signature="deleteAllCookies()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="deleteAllCookies" is-config="true" duration-ms="1" started-at="2018-09-11T11:54:58Z" finished-at="2018-09-11T11:54:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteAllCookies -->
+        <test-method status="PASS" signature="generateTestrReport()[pri:0, instance:com.Supremegolf.CitySearch_moresearchoptions@1563da5]" name="generateTestrReport" is-config="true" duration-ms="1" started-at="2018-09-11T11:54:59Z" finished-at="2018-09-11T11:54:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTestrReport -->
+      </class> <!-- com.Supremegolf.CitySearch_moresearchoptions -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

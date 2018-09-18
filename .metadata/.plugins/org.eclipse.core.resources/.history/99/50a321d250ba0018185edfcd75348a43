@@ -1,0 +1,47 @@
+package com.Supremegolf;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class VisibilityOfElements {
+
+	public static void main(String[] args) throws Exception 
+	
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://staging.supremegolf.com/letmein");
+		System.out.println(driver.getCurrentUrl());
+		Thread.sleep(1000);
+		driver.findElement(By.className("l-subheader__text")).click();
+		driver.findElement(By.id("user_email")).sendKeys("desuza.ann12@gmail.com");
+		driver.findElement(By.id("user_password")).click(); 
+		driver.findElement(By.id("user_password")).sendKeys("Ann123@");
+		Thread.sleep(1000);
+		driver.findElement(By.className("btn-orange")).click();//sign-in
+		
+		//visibility of elements
+		List<WebElement> providers = driver.findElements(By.xpath("html/body/div[2]/div[7]/div/ul//li[@class= 'providers']"));
+        int size=providers.size();
+		 System.out.println("providers: "+size);
+        for(WebElement i:providers)
+        {
+            System.out.println(i.getText());
+        } 
+		/*Iterator<WebElement> itr = providers.iterator();
+		while(itr.hasNext()) {
+		    System.out.println(itr.next());
+		}
+		*/
+		
+
+	}
+
+}
