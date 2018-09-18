@@ -1,0 +1,63 @@
+package com.Supremegolf;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ProfilePayment {
+
+	public static void main(String[] args) throws Exception 
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://staging.supremegolf.com/letmein");
+		System.out.println(driver.getCurrentUrl());
+		Thread.sleep(1000);
+		driver.findElement(By.className("l-subheader__text")).click();
+		driver.findElement(By.id("user_email")).sendKeys("desuza.ann12@gmail.com");
+		driver.findElement(By.id("user_password")).click(); 
+		driver.findElement(By.id("user_password")).sendKeys("Ann123@");
+		Thread.sleep(1000);
+		driver.findElement(By.className("btn-orange")).click();//sign-in
+		Thread.sleep(1000);
+		
+		//click on profile->payments
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class='sgDropdown']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("payments-link")).click();
+		Thread.sleep(1000);
+		if(driver.findElement(By.xpath(".//*[@id='payments-content']/div/div/div[1]/div[1]/h1")).isDisplayed())// credit/debit displayed
+		{
+			System.out.println("CREDIT/DEBIT CARD displayed\n");
+		}
+		else
+		{
+			System.out.println("CREDIT/DEBIT CARDS not displayed\n");
+		}
+		
+		Thread.sleep(1000);
+		List<WebElement> option=driver.findElements(By.xpath("html/body/div[6]/div[1]/ul"));//options tab
+		for(WebElement i:option)
+        {
+            System.out.println(i.getText());
+        }
+		System.out.println("\n");
+		Thread.sleep(1000);
+		
+		List<WebElement> avatar=driver.findElements(By.xpath("html/body/div[5]"));
+		for(WebElement i:avatar)
+		{
+			System.out.println(i.getText());
+		}
+		System.out.println("\n");
+		Thread.sleep(1000);
+		
+		
+
+	}
+
+}

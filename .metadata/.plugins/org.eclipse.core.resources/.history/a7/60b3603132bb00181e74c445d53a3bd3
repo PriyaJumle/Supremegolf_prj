@@ -1,0 +1,159 @@
+package com.Supremegolf;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class ProfilePayment {
+
+	public static void main(String[] args) throws Exception 
+	{
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://staging.supremegolf.com/letmein");
+		System.out.println(driver.getCurrentUrl());
+		Thread.sleep(1000);
+		driver.findElement(By.className("l-subheader__text")).click();
+		driver.findElement(By.id("user_email")).sendKeys("desuza.ann12@gmail.com");
+		driver.findElement(By.id("user_password")).click(); 
+		driver.findElement(By.id("user_password")).sendKeys("Ann123@");
+		Thread.sleep(1000);
+		driver.findElement(By.className("btn-orange")).click();//sign-in
+		Thread.sleep(1000);
+		
+		//click on profile->payments
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class='sgDropdown']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("payments-link")).click();
+		Thread.sleep(1000);
+		if(driver.findElement(By.xpath(".//*[@id='payments-content']/div/div/div[1]/div[1]/h1")).isDisplayed())// credit/debit displayed
+		{
+			System.out.println("CREDIT/DEBIT CARD displayed\n");
+		}
+		else
+		{
+			System.out.println("CREDIT/DEBIT CARDS not displayed\n");
+		}
+		
+		Thread.sleep(1000);
+		List<WebElement> option=driver.findElements(By.xpath("html/body/div[6]/div[1]/ul"));//options tab
+		for(WebElement i:option)
+        {
+            System.out.println(i.getText());
+        }
+		System.out.println("\n");
+		Thread.sleep(1000);
+		
+		//avatar
+		List<WebElement> avatar=driver.findElements(By.xpath("html/body/div[5]"));
+		for(WebElement i:avatar)
+		{
+			System.out.println(i.getText());
+		}
+		System.out.println("\n");
+		Thread.sleep(1000);
+		
+		//profile icon
+		List<WebElement> profileicon=driver.findElements(By.xpath(".//*[@id='header']/div[3]/div"));
+		for(WebElement i:profileicon)
+		{
+			System.out.println(i.getText());
+		}
+		System.out.println("\n");
+		Thread.sleep(1000);
+		
+		//payment card information
+		List<WebElement> payment_content=driver.findElements(By.xpath(".//*[@id='payments-content']/div/div/div[1]/div[2]"));
+		for(WebElement i:payment_content)
+		{
+			System.out.println(i.getText());
+		}
+		System.out.println("\n");
+		Thread.sleep(1000);
+		
+		//add card button
+		List<WebElement> cardadd=driver.findElements(By.xpath(".//*[@id='payments-content']/div/div/div[3]"));
+		for(WebElement i:cardadd)
+		{
+			System.out.println(i.getText());
+		}
+		System.out.println("\n");
+		Thread.sleep(1000);
+		
+		//adding card
+		driver.findElement(By.xpath(".//*[@id='add_credit_card']")).click();
+		Thread.sleep(1000);
+		System.out.println("clicked on Add Credit Card Button");
+		Thread.sleep(1000);
+		
+		//fill information in field for credit card information
+		
+		
+		driver.findElement(By.xpath(".//*[@id='credit_card_full_name']")).sendKeys("ABCD,XYZW");//name
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='credit_card_number']")).sendKeys("4111111111111111"); // card number
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='credit_card_verification_value']")).sendKeys("123");//CVV
+		Thread.sleep(1000);
+		
+		//expiration date on card
+		
+		//month
+		WebElement d1=driver.findElement(By.xpath(".//*[@id='credit_card_month']"));
+		Select s1=new Select(d1);
+		s1.selectByVisibleText("2");
+		System.out.println(s1.getFirstSelectedOption().getText()+"\n");
+		Thread.sleep(1000);
+		
+		//year
+		WebElement d2=driver.findElement(By.xpath(".//*[@id='credit_card_year']"));
+		Select s2=new Select(d2);
+		s2.selectByVisibleText("2022");
+		System.out.println(s2.getFirstSelectedOption().getText()+"\n");
+		Thread.sleep(1000);
+		
+		//billing address
+		driver.findElement(By.xpath(".//*[@id='credit_card_address_1']")).sendKeys("asdfgh, agtrefgs, hfjfjk");//Addr line 1
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='credit_card_address_2']")).sendKeys("jkjsjkj, jrjhgkejk,kjgphkd");//Addr line 2
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='credit_card_city']")).sendKeys("Pqrs");//city
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='credit_card_zip']")).sendKeys("abcdef");//zip code
+		Thread.sleep(1000);
+		
+		//country
+		WebElement d4=driver.findElement(By.xpath(".//*[@id='country']"));
+		Select s4=new Select(d4);
+		s4.selectByVisibleText("United States");
+		System.out.println(s4.getFirstSelectedOption().getText()+"\n");
+		Thread.sleep(1000);
+				
+		//state province
+		WebElement d3=driver.findElement(By.xpath(".//*[@id='credit_card_state']"));
+		Select s3=new Select(d3);
+		s3.selectByVisibleText("Alabama");
+		System.out.println(s3.getFirstSelectedOption().getText()+"\n");
+		Thread.sleep(1000);
+		
+		//save card button
+		driver.findElement(By.xpath(".//*[@id='card-btn-submit']")).click();
+		Thread.sleep(1000);
+		
+		System.out.println("Credit card addded succesfully");
+		Thread.sleep(1000);
+		
+		//make card default
+		
+		
+		
+		
+		
+	}
+}
+
