@@ -1,0 +1,78 @@
+package com.Supremegolf;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ProfileReservation {
+
+	public static void main(String[] args) throws Exception {
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://rj.staging.supremegolf.com/letmein");
+		System.out.println(driver.getCurrentUrl()+"\n");
+		Thread.sleep(1000);
+		driver.findElement(By.className("l-subheader__text")).click();
+		driver.findElement(By.id("user_email")).sendKeys("desuza.ann12@gmail.com");
+		driver.findElement(By.id("user_password")).click(); 
+		driver.findElement(By.id("user_password")).sendKeys("Ann123@");
+		Thread.sleep(1000);
+		driver.findElement(By.className("btn-orange")).click();//sign-in
+		Thread.sleep(1000);
+		
+		//profile--> Reservation
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class='sgDropdown']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("reservations-link")).click();
+		Thread.sleep(1000);
+		
+		//current reservation text
+		System.out.println(driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/h1[1]")).getText()+"\n");
+		Thread.sleep(1000);
+		
+		//checking for ascending order of current reservations
+		List<WebElement> current_rev=driver.findElements(By.xpath(".//*[@id='reservations-content']/div/div/div[1]"));
+		int size1=current_rev.size();
+		System.out.println(size1);
+		 for(WebElement i:current_rev)
+		       {
+		           System.out.println(i.getText());
+		       }
+		 System.out.println("\n");
+		 Thread.sleep(1000);
+				
+		for (int i = 1; i <= size1; i++) 
+		{
+			String date1=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[1]/table/tbody/tr["+i+"]/th[2]")).getText();
+			//System.out.println(date1);
+			Thread.sleep(500);
+			int j=i+1;
+			String date2=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[1]/table/tbody/tr["+j+"]/th[2]")).getText();
+			//System.out.println(date2);
+			Thread.sleep(500);
+			if(date1.compareTo(date2)<0)
+			{
+				System.out.println("same date");
+			}
+			else
+			{
+				System.out.println("date 1 < date2");
+			}
+		}
+		/*	if(driver.findElement(By.xpath(".//*[@id='payments-content']/div/div/div[1]/div[1]/h1")).isDisplayed())// credit/debit displayed
+		{
+			System.out.println("\n");
+		}
+		else
+		{
+			System.out.println("CREDIT/DEBIT CARDS not displayed\n");
+		}
+*/
+	}
+
+}

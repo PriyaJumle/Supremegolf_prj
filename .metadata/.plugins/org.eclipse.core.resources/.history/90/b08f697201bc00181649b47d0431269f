@@ -1,0 +1,123 @@
+package com.Supremegolf;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ProfileReservation {
+
+	public static void main(String[] args) throws Exception {
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://rj.staging.supremegolf.com/letmein");
+		System.out.println(driver.getCurrentUrl()+"\n");
+		Thread.sleep(1000);
+		driver.findElement(By.className("l-subheader__text")).click();
+		driver.findElement(By.id("user_email")).sendKeys("desuza.ann12@gmail.com");
+		driver.findElement(By.id("user_password")).click(); 
+		driver.findElement(By.id("user_password")).sendKeys("Ann123@");
+		Thread.sleep(1000);
+		driver.findElement(By.className("btn-orange")).click();//sign-in
+		Thread.sleep(1000);
+		
+		//profile--> Reservation
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class='sgDropdown']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("reservations-link")).click();
+		Thread.sleep(1000);
+		
+		/*
+		//current reservation text
+		System.out.println(driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/h1[1]")).getText()+"\n");
+		Thread.sleep(1000);
+		
+		//checking for ascending order of current reservations
+		List<WebElement> current_rev=driver.findElements(By.xpath(".//*[@id='reservations-content']/div/div/div[1]/table/tbody/tr"));
+		System.out.println(current_rev.size());
+		Thread.sleep(1000);
+		 for(WebElement i:current_rev)
+		       {
+		           System.out.println(i.getText());
+		       }
+		 System.out.println("\n");
+		 Thread.sleep(1000);
+				
+		for (int i = 1; i < current_rev.size(); i++) 
+		{
+			String date1=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[1]/table/tbody/tr["+i+"]/th[2]")).getText();
+			//System.out.println(date1);
+			Thread.sleep(500);
+			int j=i+1;
+			String date2=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[1]/table/tbody/tr["+j+"]/th[2]")).getText();
+			//System.out.println(date2);
+			Thread.sleep(500);
+			if(date1.compareTo(date2)<=0)
+			{
+				System.out.println(date1+" less/equal than "+date2);
+			}
+			else
+			{
+				System.out.println(date1+" greater/equal than  "+date2+"\n");
+			}
+			if(j==(current_rev.size()+1) || i==(current_rev.size()+1) )
+			{
+				break;
+			}
+				
+		}
+		*/
+		
+		//past reservation text
+		System.out.println(driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/h1[2]")).getText()+"\n");
+		Thread.sleep(1000);
+		
+		//checking for descending order of past reservations
+				List<WebElement> past_rev=driver.findElements(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr"));
+				System.out.println(past_rev.size());
+				Thread.sleep(1000);
+				 for(WebElement i:past_rev)
+				       {
+				           System.out.println(i.getText());
+				       }
+				 System.out.println("\n");
+				 Thread.sleep(1000);
+				 
+						
+				for (int i = 1; i <= past_rev.size(); i++) 
+				{
+					String date1=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr["+i+"]/th[2]")).getText();
+					//System.out.println(date1);
+					Thread.sleep(500);
+					 i=i+1;
+					String date2=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr["+i+"]/th[2]")).getText();
+					//System.out.println(date2);
+					Thread.sleep(500);
+					if(date1.compareTo(date2)>0)
+					{
+						System.out.println(date1+" greater than  "+date2);
+					}
+					else if(date1.compareTo(date2)<0)
+					{
+						System.out.println(date1+" less than  "+date2+"\n");
+					}
+					else
+					{
+						System.out.println(date1+" equal to  "+date2+"\n");
+					}
+					i=i;
+					Thread.sleep(500);
+					if(i==(past_rev.size()+1) )
+					{
+						break;
+					}
+						
+				}
+		
+	}
+
+}

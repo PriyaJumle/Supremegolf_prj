@@ -76,8 +76,8 @@ public class ProfilePayment {
 		System.out.println("\n");
 		Thread.sleep(1000);
 		
-		/*
 		
+		/*
 		//add card button
 		List<WebElement> cardadd=driver.findElements(By.xpath(".//*[@id='payments-content']/div/div/div[3]"));
 		for(WebElement i:cardadd)
@@ -149,12 +149,13 @@ public class ProfilePayment {
 		
 		System.out.println("Credit card addded succesfully");
 		Thread.sleep(1000);
-		*/
+		
+		
 		//make card default
 		driver.findElement(By.xpath(".//*[@id='payments-content']/div/div/div[1]/div[2]/div[1]/div/div[2]/h4/a[1]")).click();
 		Thread.sleep(1000);
 		System.out.println(driver.findElement(By.xpath(".//*[@id='payments-content']/div/div/div[1]/div[2]/div[1]/div/div[2]/h4/a[1]")).getText());
-		
+		*/
 		/*
 		//delete card
 		driver.findElement(By.xpath(".//*[@id='payments-content']/div/div/div[1]/div[2]/div[1]/div/div[2]/h4/a[2]")).click();
@@ -182,9 +183,9 @@ public class ProfilePayment {
 			driver.findElement(By.className("close")).click();
 			System.out.println("card not deleted");
 		}
-		*/
-		//Thread.sleep(1000);
 		
+		//Thread.sleep(1000);
+		*/
 		//edit card
 		driver.findElement(By.className("js-edit-credit-card")).click();
 		System.out.println("clicked on edit");
