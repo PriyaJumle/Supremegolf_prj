@@ -1,19 +1,14 @@
 package com.Supremegolf;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import net.sourceforge.htmlunit.corejs.javascript.regexp.SubString;
 
 public class ProfileReservation {
 
@@ -183,7 +178,7 @@ public class ProfileReservation {
 						
 				}
 				*/
-		/*
+		
 		//array list past reservation
 		 List<String> datetime_1 = new ArrayList<>();
 		 List<String> datetime_2=new ArrayList<>();
@@ -193,7 +188,7 @@ public class ProfileReservation {
 		Thread.sleep(1000);
 		
 			//checking for descending order of past reservations
-			List<WebElement> past_rev=driver.findElements(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr"));//for printing whole list
+			List<WebElement> past_rev=driver.findElements(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr"));
 			System.out.println(past_rev.size());
 			Thread.sleep(1000);
 			 for(WebElement i:past_rev)
@@ -202,29 +197,42 @@ public class ProfileReservation {
 			       }
 			 System.out.println("\n");
 			 Thread.sleep(1000);
-			 
 		 for (int i = 1; i < past_rev.size(); i++) 
 			{
 				String date1=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr["+i+"]/th[2]")).getText();
+				//System.out.println(date1);
 				Thread.sleep(500);
-				System.out.println("sUB: "+date1.substring(11, 28));
 				String time1=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr["+i+"]/th[3]")).getText();
 				Thread.sleep(500);
 				String dateTime1=date1.concat("\t"+time1);
-		
-				datetime_1.add(dateTime1);
-				datetime_2.add(dateTime1);		
+				System.out.println(dateTime1);
 				
+				datetime_1.add(dateTime1);
+				Thread.sleep(500);
+				datetime_2.add(dateTime1);
+				
+				i=i+1;
+				
+				String date2=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr["+i+"]/th[2]")).getText();
+				Thread.sleep(500);
+				String time2=driver.findElement(By.xpath(".//*[@id='reservations-content']/div/div/div[2]/table/tbody/tr["+i+"]/th[3]")).getText();
+				Thread.sleep(500);
+				
+				String dateTime2=date1.concat("\t"+time2);
+				System.out.println(dateTime2);
+				
+				datetime_1.add(dateTime2);
+				datetime_2.add(dateTime2);
+				
+				
+	}
 		
-			}
-		Collections.sort(datetime_2);
-		 Thread.sleep(500);*/
-		 /*
-		 for(int l=0;l<datetime_1.size();l++) {
-			 System.out.println(datetime_2.get(l));
-		 }
-		 Thread.sleep(500);
-		 
+		 Collections.sort(datetime_2);
+			Thread.sleep(500);
+			
+			
+			
+			
 			for(int l=0;l<datetime_1.size();l++) {
 				if(datetime_1.get(l).equals(datetime_2.get(l)))
 				{
@@ -236,24 +244,11 @@ public class ProfileReservation {
 				}
 			}
 			
-		*/	
-		
-		
-		}
-	//pass rev datetime object 
-	
-	
-	
-	private String getDateTime() {
-		
-	    DateFormat dateFormat = new SimpleDateFormat("EEEE, MMMM dd yyyy HH:mm");
-	    Date date = new Date();
-	    return dateFormat.format(date);
-			      
-	
-			}
+			
+			
+	}
+
 	
 		
 	}
-
 

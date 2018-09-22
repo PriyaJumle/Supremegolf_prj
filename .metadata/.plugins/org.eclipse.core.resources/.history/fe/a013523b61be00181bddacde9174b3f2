@@ -241,11 +241,7 @@ public class ProfileReservation {
 		
 		}
 	//pass rev datetime object 
-	
-	
-	
 	private String getDateTime() {
-		
 	    DateFormat dateFormat = new SimpleDateFormat("EEEE, MMMM dd yyyy HH:mm");
 	    Date date = new Date();
 	    return dateFormat.format(date);
